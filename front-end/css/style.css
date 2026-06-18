@@ -1,0 +1,150 @@
+/* /css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&display=swap');
+
+:root {
+    --primary: #00305c;        /* Azul Marino San Ignacio */
+    --primary-light: #004683;  /* Azul Duoc UC */
+    --secondary: #f0941c;      /* Naranja Institucional */
+    --accent-brown: #8a5100;   /* Marrón de botones específicos */
+    --bg-light: #fbf9f8;
+    --text-main: #1b1c1c;
+    --outline: #c2c6d2;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    margin: 0;
+}
+
+/* Header & Nav */
+.header-nav {
+    background: white;
+    border-bottom: 1px solid var(--outline);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-link:hover { color: var(--secondary); }
+
+.nav-link.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
+}
+
+/* Cards y Formularios */
+.card-white {
+    background: white;
+    border: 1px solid var(--outline);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.label-blue {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+    display: block;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--outline);
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* --- ESTILOS ADICIONALES PARA EL VOUCHER --- */
+
+.voucher-header {
+    background-color: #1d61ff; /* Azul vibrante de la imagen */
+    color: white;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+}
+
+.voucher-body {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 30px;
+}
+
+.id-display-card {
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.summary-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.summary-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.summary-value {
+    color: #333;
+    font-weight: 600;
+    text-align: right;
+}
+
+.step-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.step-icon-box {
+    background-color: #e8f0fe;
+    color: #1d61ff;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden-view {
+    display: none;
+}
