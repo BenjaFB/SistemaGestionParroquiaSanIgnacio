@@ -1,0 +1,64 @@
+<!-- /pages/login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <title>Acceso | Pastoral Juvenil San Ignacio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+    <div class="w-full max-w-[420px]">
+        <div class="text-center mb-10">
+            <div class="bg-[#00305c] p-4 rounded-xl inline-block shadow-lg mb-4">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/bank.png" class="w-10">
+            </div>
+            <h1 class="text-2xl font-bold text-[#00305c] mb-1">Pastoral Juvenil San Ignacio</h1>
+            <p class="text-gray-500 text-sm">Gestión Administrativa y Voluntariado</p>
+        </div>
+
+        <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-200">
+            <h2 class="text-xs font-bold text-[#00305c] uppercase tracking-widest mb-6 border-b-2 border-[#f0941c] inline-block pb-1">Acceso al Sistema</h2>
+            
+            <form class="space-y-6">
+                <div>
+                    <label class="label-blue">Correo Electrónico</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-3 text-gray-400">✉</span>
+                        <input type="email" placeholder="usuario@pastoral.org" class="pl-10">
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <label class="label-blue">Contraseña</label>
+                        <a href="#" class="text-[10px] text-[#f0941c] font-bold no-underline">¿Recuperar contraseña?</a>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute left-3 top-3 text-gray-400">🔒</span>
+                        <input type="password" placeholder="••••••••" class="pl-10 pr-10">
+                        <span class="absolute right-3 top-3 text-gray-400 cursor-pointer">👁</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="rem" class="w-4 h-4 rounded border-gray-300 text-[#00305c]">
+                    <label for="rem" class="text-xs text-gray-500">Recordar mi sesión</label>
+                </div>
+                <button class="w-full bg-[#00305c] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-[#004683] transition">
+                    INICIAR SESIÓN ➔
+                </button>
+            </form>
+
+            <div class="mt-8 pt-6 border-t border-gray-100 text-center">
+                <a href="../index.html" class="text-xs font-bold text-[#f0941c] hover:underline flex items-center justify-center gap-2 no-underline">
+                    ← Volver al Inicio
+                </a>
+            </div>
+
+            <p class="mt-6 text-[10px] text-gray-400 text-center">
+                Si tienes problemas, contacta con el <br>
+                <strong class="text-[#00305c]">Departamento de Sistemas</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
