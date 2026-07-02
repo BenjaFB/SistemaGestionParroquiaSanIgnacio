@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión Pastoral - Formando líderes con corazón jesuita</title>
+<!-- Google Fonts: Work Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#693c00",
+                      "primary-fixed": "#d4e3ff",
+                      "outline-variant": "#c3c6d0",
+                      "surface-variant": "#e2e2e6",
+                      "on-primary-fixed": "#001c3a",
+                      "secondary-fixed": "#ffdcbd",
+                      "on-background": "#1a1c1f",
+                      "surface-bright": "#faf9fd",
+                      "primary": "#001b38",
+                      "outline": "#737780",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2f3034",
+                      "surface-container": "#eeedf2",
+                      "inverse-on-surface": "#f1f0f5",
+                      "surface-tint": "#3d608e",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#a6c8fd",
+                      "on-primary-container": "#7799cb",
+                      "secondary-fixed-dim": "#ffb86e",
+                      "tertiary-fixed": "#ffdcbd",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#693c00",
+                      "on-secondary-fixed": "#2c1600",
+                      "on-tertiary-container": "#cd883b",
+                      "primary-container": "#00305c",
+                      "surface-dim": "#dad9de",
+                      "on-tertiary": "#ffffff",
+                      "background": "#faf9fd",
+                      "on-surface-variant": "#43474f",
+                      "tertiary-fixed-dim": "#ffb86e",
+                      "on-tertiary-fixed": "#2c1600",
+                      "on-secondary": "#ffffff",
+                      "surface": "#faf9fd",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#224875",
+                      "surface-container-highest": "#e2e2e6",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1a1c1f",
+                      "surface-container-low": "#f4f3f7",
+                      "secondary-container": "#ffa02b",
+                      "surface-container-high": "#e8e8ec",
+                      "tertiary": "#2b1600",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#a6c8fd",
+                      "on-secondary-container": "#693d00",
+                      "secondary": "#8a5100",
+                      "tertiary-container": "#482800"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "32px",
+                      "margin-mobile": "16px",
+                      "unit": "8px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Work Sans"],
+                      "headline-lg": ["Work Sans"],
+                      "headline-xl": ["Work Sans"],
+                      "headline-lg-mobile": ["Work Sans"],
+                      "label-md": ["Work Sans"],
+                      "label-sm": ["Work Sans"],
+                      "body-lg": ["Work Sans"],
+                      "body-md": ["Work Sans"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; background-color: #faf9fd; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hero-gradient { background: linear-gradient(135deg, #00305c 0%, #004683 100%); }
+        .transition-all { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- Header / TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface border-b border-outline-variant shadow-sm h-16">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-headline-md text-headline-md" style="font-variation-settings: 'FILL' 1;"></span>
+<span class="font-headline-md text-headline-md font-bold text-primary">Pastoral San Ignacio</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary hover:text-primary transition-colors" href="index.html">Inicio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="pages/donaciones.html">Donaciones</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="pages/voluntariado.html">Voluntariado</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="pages/login-supervisor.html">Supervisor</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="pages/login-admin.html">Administración</a></nav>
+<div>
+<a class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:opacity-80 transition-all active:scale-95" href="pages/login.html">
+                    Iniciar Sesión
+                </a>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden py-24 md:py-32" style="background-image: linear-gradient(rgba(0, 27, 56, 0.7), rgba(0, 27, 56, 0.7)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhS5jkUqBw9B56oB7QJC2XzgoIFWlVu_yFrXMCccDrYpBwticpNZHHNBh1fnprCrq0f1EX3kBUKu82WXMGPBnbyscGmmOO4v9XdTAaIbotKhZ8DBdP0WvFYYzOifXY619wqXr_jvdRNOAeAKF3aVQ1-W7MZpmWT4RENQ-W9fV4ZELlDj91946xNkLdKkj5Ai1iBaTQ59-02ctSOO8sDX7arGcfsOtcbUZU4D58lieA_ayhwkYGyOZCaA'); background-size: cover; background-position: center;">
+<!-- Subtle atmospheric overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 20% 30%, #ffffff 0%, transparent 50%);"></div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col items-center text-center relative z-10">
+<h1 class="font-headline-xl text-headline-xl text-on-primary max-w-3xl mb-6">
+                    Formando líderes con corazón jesuita
+                </h1>
+<p class="font-body-lg text-body-lg text-primary-fixed max-w-2xl mb-10 opacity-90">
+                    Acompañamos el desarrollo de comunidades a través de la construcción, la solidaridad y el compromiso social inspirado en los valores de San Ignacio.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-label-md text-headline-md font-bold hover:scale-105 transition-all shadow-lg flex items-center gap-2" href="pages/voluntariado.html">
+<span class="material-symbols-outlined">volunteer_activism</span>
+                        Únete al Voluntariado
+                    </a>
+<a class="border-2 border-primary-fixed text-primary-fixed px-8 py-4 rounded-xl font-label-md text-headline-md font-bold hover:bg-primary-fixed/10 transition-all" href="#proyectos">
+                        Saber Más
+                    </a>
+</div>
+</div>
+</section>
+<!-- Sección Proyectos -->
+<section class="py-20 bg-surface" id="proyectos">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest">Nuestra labor activa</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">Proyectos en Curso</h2>
+</div>
+<a class="text-primary font-label-md text-label-md font-bold flex items-center gap-1 hover:underline transition-all" href="#">
+                        Ver todos <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Bento-ish Grid for Projects -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project 1 -->
+<div class="group bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all border-t-4 border-secondary flex flex-col">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" data-alt="A professional architectural photograph of a community housing reconstruction site under bright daylight. Jesuit volunteers are seen in the background working on wooden frames. The atmosphere is optimistic and industrious, with a clean corporate documentary style using warm earth tones and professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyljYpgT4KO6iMhkYAH_YYCP0mUE7Km-Yql8XcVkW_Mv2erOqaC3f8Zw_aWfMOLGpl0euTrrBXjyqx2YT8KoJErf3QMkB9SLoexyGm6f9tqtU4OlcGzSrwIqKMA9IU1Dfqy_zlKplHp0FDV9Izoge1kgaTPUWEddpMxiS3G981WVXSmMhMEo43h7AAzicvPUA-PbMgunhQL6H7nU60dAqQ5gF69QOXVEsyAs9SQlaClIZi8X3BHZAmpQ"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Reconstrucción de casas a familias damnificadas</h3>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-label-sm font-bold">Urgente</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                                Apoyo directo a la reconstrucción estructural en zonas afectadas por desastres naturales, integrando técnicas de construcción sostenible.
+                            </p>
+<div class="mt-auto">
+<div class="flex justify-between text-label-sm font-bold text-primary mb-2">
+<span class="">Progreso del proyecto</span>
+<span class="">75%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all duration-1000" style="width: 75%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all border-t-4 border-tertiary flex flex-col">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" data-alt="A clean, organized warehouse interior featuring stacks of high-quality construction materials like timber, bricks, and cement bags. Warm overhead sunlight streams through high windows, creating a sense of order and institutional transparency. The image reflects architectural precision and stability within a Jesuit administrative context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf8JTVY9pHYwki5oJWM4XN1cfnw1ov_IRYWjcQngEOj_3GreQ4sDfkw7tguJvQ6_sxKjtwsRMPvKOwMQh6PK7JnNVQ8CtiN6G22onJKDa4ZSwRtVvxoETIYpekQWnbQYYp4RnX7i3aL9oC_WebYpoZeOq_pNvp69GElm5lcwjeHzImRlecRoQh8ZvW16HyHJZwXXkgZElOhnxsQ9gdRFZ_LaU2OxT28XbGyyE3EV3SH6HdvvhrdXMETw"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Recibimiento de material y organización de bodega</h3>
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-label-sm font-bold">Logística</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                                Gestión eficiente de suministros donados para asegurar que cada ladrillo llegue a su destino final en las obras sociales.
+                            </p>
+<div class="mt-auto">
+<div class="flex justify-between text-label-sm font-bold text-primary mb-2">
+<span class="">Progreso del inventario</span>
+<span class="">40%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary transition-all duration-1000" style="width: 40%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Banner de Donación -->
+<section class="py-16">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="bg-surface-container-high rounded-[2rem] p-12 md:p-16 flex flex-col md:flex-row items-center gap-12 shadow-sm border border-outline-variant/30">
+<div class="w-24 h-24 md:w-32 md:h-32 bg-primary rounded-full flex items-center justify-center text-on-primary shadow-lg shrink-0">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">foundation</span>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Tu donación construye hogares</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                            Cada aporte de materiales de construcción —desde una bolsa de cemento hasta estructuras metálicas— se traduce directamente en muros que protegerán a una familia.
+                        </p>
+</div>
+<div class="shrink-0">
+<a class="bg-primary text-on-primary px-10 py-5 rounded-xl font-headline-md text-headline-md hover:scale-105 hover:bg-primary-container transition-all flex items-center gap-3" href="pages/donaciones.html">
+<span class="material-symbols-outlined">handshake</span>
+                            Donar Ahora
+                        </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant">
+<div class="w-full py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-start max-w-container-max mx-auto gap-12">
+<div class="max-w-sm">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary font-label-md text-label-md" style="font-variation-settings: 'FILL' 1;">church</span>
+<span class="font-label-md text-label-md font-bold text-primary">Gestión Pastoral</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+                    Misión Jesuita dedicada a la transformación social a través del voluntariado y la gestión eficiente de recursos para la construcción de comunidades dignas.
+                </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-label-md font-bold text-primary">Navegación</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-opacity" href="index.html">Inicio</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity" href="pages/donaciones.html">Donaciones</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity" href="pages/voluntariado.html">Voluntariado</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-label-md font-bold text-primary">Recursos</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity" href="#">Contacto</a>
+</div>
+</div>
+</div>
+<div class="w-full py-6 border-t border-outline-variant/30 px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto">
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">
+                © 2024 Misión Jesuita. Todos los derechos reservados.
+            </p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">face_nod</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">mail</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(this.hash !== "") {
+                    const hash = this.hash;
+                    if(document.querySelector(hash)) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: document.querySelector(hash).offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for progress bars
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                    observer.unobserve(bar);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bg-secondary, .bg-tertiary').forEach(bar => {
+            if(bar.classList.contains('h-full')) observer.observe(bar);
+        });
+    </script>
+</body></html>

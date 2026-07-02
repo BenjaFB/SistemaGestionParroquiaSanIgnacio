@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Inscripción Voluntariado | Gestión Pastoral</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #faf9fd;
+        }
+        .form-input-focus:focus {
+            border-color: #001b38;
+            box-shadow: 0 0 0 1px #001b38;
+            outline: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#693c00",
+                    "primary-fixed": "#d4e3ff",
+                    "outline-variant": "#c3c6d0",
+                    "surface-variant": "#e2e2e6",
+                    "on-primary-fixed": "#001c3a",
+                    "secondary-fixed": "#ffdcbd",
+                    "on-background": "#1a1c1f",
+                    "surface-bright": "#faf9fd",
+                    "primary": "#001b38",
+                    "outline": "#737780",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2f3034",
+                    "surface-container": "#eeedf2",
+                    "inverse-on-surface": "#f1f0f5",
+                    "surface-tint": "#3d608e",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#a6c8fd",
+                    "on-primary-container": "#7799cb",
+                    "secondary-fixed-dim": "#ffb86e",
+                    "tertiary-fixed": "#ffdcbd",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#693c00",
+                    "on-secondary-fixed": "#2c1600",
+                    "on-tertiary-container": "#cd883b",
+                    "primary-container": "#00305c",
+                    "surface-dim": "#dad9de",
+                    "on-tertiary": "#ffffff",
+                    "background": "#faf9fd",
+                    "on-surface-variant": "#43474f",
+                    "tertiary-fixed-dim": "#ffb86e",
+                    "on-tertiary-fixed": "#2c1600",
+                    "on-secondary": "#ffffff",
+                    "surface": "#faf9fd",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#224875",
+                    "surface-container-highest": "#e2e2e6",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1a1c1f",
+                    "surface-container-low": "#f4f3f7",
+                    "secondary-container": "#ffa02b",
+                    "surface-container-high": "#e8e8ec",
+                    "tertiary": "#2b1600",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a6c8fd",
+                    "on-secondary-container": "#693d00",
+                    "secondary": "#8a5100",
+                    "tertiary-container": "#482800"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Work Sans"],
+                    "headline-lg": ["Work Sans"],
+                    "headline-xl": ["Work Sans"],
+                    "headline-lg-mobile": ["Work Sans"],
+                    "label-md": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface sticky top-0 z-50 w-full border-b border-outline-variant shadow-sm h-16">
+<nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md font-bold text-primary">Pastoral San Ignacio</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="../index.html">Inicio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="donaciones.html">Donaciones</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary" href="voluntariado.html">Voluntariado</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="login-supervisor.html">Supervisor</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="login-admin.html">Administración</a></div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:opacity-80 transition-all active:scale-95">
+                Iniciar Sesión
+            </button>
+</nav>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-12 md:py-16">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<!-- Left Column: Information -->
+<div class="flex flex-col space-y-10">
+<div class="space-y-4">
+<h1 class="font-headline-xl text-headline-xl text-primary leading-tight">Seamos parte del cambio</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        La misión jesuita nos llama a construir no solo estructuras, sino comunidades sólidas basadas en la solidaridad y el trabajo compartido. Tu aporte es la piedra angular de un futuro más justo.
+                    </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Impact Card 1 -->
+<div class="bg-white p-8 rounded-xl shadow-sm border-t-4 border-tertiary flex flex-col items-start gap-4">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-full text-primary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Comunidad</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Fortalecemos lazos sociales a través del trabajo en equipo en terreno.</p>
+</div>
+</div>
+<!-- Impact Card 2 -->
+<div class="bg-white p-8 rounded-xl shadow-sm border-t-4 border-secondary flex flex-col items-start gap-4">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-full text-secondary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">handyman</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Impacto Social</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Construimos viviendas dignas para familias en situación de vulnerabilidad.</p>
+</div>
+</div>
+</div>
+<div class="relative w-full h-80 rounded-2xl overflow-hidden shadow-lg group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic wide shot of a Jesuit volunteer group working together on a construction site in a rural landscape at sunrise. The warm, golden hour light bathes the wooden frame of a house, highlighting the textures of sawdust and raw timber. Volunteers are wearing navy blue vests and safety helmets, sharing a moment of laughter while lifting a structural beam. The overall atmosphere is one of profound purpose, reliable innovation, and warm communal spirit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd36iCcX3Z9FoSeNlcMqJ-80oowIiUHQ8rwlkwZKvDYpZbHT6GBYNF8B9rtBiIXsf0sgNMJ_mY1aGIUtdrFqOGwe9JDpXBxq6j_ejUdwUxcu4tp0Vg9dnuSB8VuyoOrZwVeFYCRptr-cD9ktiT5oPbdwmc-f9K9K-3tJ3Q_34jvT5htynnxSypJuSyptMO0CI3ZKBK0NZk77NVkPK5qp7PxClmy7EDCbB6iUR643UVPaNVC5JEmAydpg">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<span class="font-label-sm text-label-sm uppercase tracking-widest opacity-80">Nuestro Trabajo</span>
+<p class="font-headline-md text-headline-md">Más de 500 viviendas construidas este año</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Form -->
+<div>
+<div class="bg-white p-8 md:p-10 rounded-2xl shadow-[0px_4px_20px_rgba(0,48,92,0.05)] border border-outline-variant/30">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Formulario de Inscripción</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-primary mb-2">Nombres</label>
+<input class="border border-outline-variant rounded-lg p-3 font-body-md text-body-md form-input-focus transition-all" placeholder="Ej: Juan Andrés" type="text" id="vol-nombres" required>
+</div>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-primary mb-2">Apellidos</label>
+<input class="border border-outline-variant rounded-lg p-3 font-body-md text-body-md form-input-focus transition-all" placeholder="Ej: Pérez González" type="text" id="vol-apellidos" required>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-primary mb-2">RUT</label>
+<input class="border border-outline-variant rounded-lg p-3 font-body-md text-body-md form-input-focus transition-all" placeholder="12.345.678-9" type="text" id="vol-rut" required>
+</div>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-primary mb-2">Fecha Nacimiento</label>
+<input class="border border-outline-variant rounded-lg p-3 font-body-md text-body-md form-input-focus transition-all" type="date" id="vol-fechanac">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-primary mb-2">Teléfono</label>
+<div class="flex">
+<span class="bg-surface-container border border-r-0 border-outline-variant rounded-l-lg p-3 font-body-md text-body-md text-on-surface-variant">+56</span>
+<input class="flex-grow border border-outline-variant rounded-r-lg p-3 font-body-md text-body-md form-input-focus transition-all" placeholder="9 1234 5678" type="tel" id="vol-telefono" required>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-primary mb-2">Correo Electrónico</label>
+<input class="border border-outline-variant rounded-lg p-3 font-body-md text-body-md form-input-focus transition-all" placeholder="ejemplo@correo.cl" type="email" id="vol-correo" required>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-primary mb-2">Nivel de conocimientos en construcción</label>
+<select class="border border-outline-variant rounded-lg p-3 font-body-md text-body-md form-input-focus bg-white transition-all appearance-none" id="vol-nivel">
+<option disabled="" selected="" value="">Seleccione un nivel</option>
+<option value="basico">Básico</option>
+<option value="intermedio">Intermedio</option>
+<option value="avanzado">Avanzado</option>
+</select>
+</div>
+<!-- Availability Section -->
+<div class="pt-4">
+<label class="font-label-md text-label-md text-primary mb-4 block">SECCIÓN DISPONIBILIDAD</label>
+<div class="grid grid-cols-4 sm:grid-cols-7 gap-2">
+<label class="flex flex-col items-center gap-2 group cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Lun</span>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary chk-dia" type="checkbox">
+</label>
+<label class="flex flex-col items-center gap-2 group cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Mar</span>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary chk-dia" type="checkbox">
+</label>
+<label class="flex flex-col items-center gap-2 group cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Mié</span>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary chk-dia" type="checkbox">
+</label>
+<label class="flex flex-col items-center gap-2 group cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Jue</span>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary chk-dia" type="checkbox">
+</label>
+<label class="flex flex-col items-center gap-2 group cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Vie</span>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary chk-dia" type="checkbox">
+</label>
+<label class="flex flex-col items-center gap-2 group cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Sáb</span>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary chk-dia" type="checkbox">
+</label>
+<label class="flex flex-col items-center gap-2 group cursor-pointer">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Dom</span>
+<input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary chk-dia" type="checkbox">
+</label>
+</div>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container font-headline-md text-headline-md py-4 rounded-lg shadow-sm hover:brightness-105 active:scale-95 transition-all mt-6" type="submit">
+                            Enviar Inscripción
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant py-8">
+<div class="w-full px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-label-md text-label-md font-bold text-primary">Misión Jesuita</span>
+<p class="font-label-sm text-label-sm text-on-surface">© 2024 Misión Jesuita. Todos los derechos reservados.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+<script src="../js/api.js"></script>
+<script>
+        // Inscripción real de voluntario → service-usuarios (puerto 8081)
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Procesando...";
+            btn.disabled = true;
+
+            try {
+                // RUT → run + dv
+                const rutLimpio = document.getElementById('vol-rut').value.replace(/\./g, '');
+                const [runStr, dv] = rutLimpio.split('-');
+
+                // Apellidos → paterno / materno
+                const apellidos = document.getElementById('vol-apellidos').value.trim().split(' ');
+
+                // Días de disponibilidad marcados
+                const dias = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+                const disponibilidad = Array.from(document.querySelectorAll('.chk-dia'))
+                    .map((chk, i) => chk.checked ? dias[i] : null)
+                    .filter(Boolean).join(', ');
+
+                await apiFetch(`${API.USUARIOS}/voluntario`, 'POST', {
+                    run: parseInt(runStr, 10),
+                    dv: dv || '',
+                    nombre: document.getElementById('vol-nombres').value.trim(),
+                    appaterno: apellidos[0] || '',
+                    apmaterno: apellidos.slice(1).join(' ') || '',
+                    telefono: '+56 ' + document.getElementById('vol-telefono').value.trim(),
+                    correo: document.getElementById('vol-correo').value.trim(),
+                    contrasena: rutLimpio, // clave inicial = RUT sin puntos
+                    areasInteres: document.getElementById('vol-nivel').value || 'No especificado',
+                    disponibilidad: disponibilidad || 'No especificada'
+                });
+
+                btn.innerText = "¡Inscripción Enviada!";
+                btn.classList.replace('bg-secondary-container', 'bg-primary');
+                btn.classList.replace('text-on-secondary-container', 'text-on-primary');
+
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.replace('bg-primary', 'bg-secondary-container');
+                    btn.classList.replace('text-on-primary', 'text-on-secondary-container');
+                    btn.disabled = false;
+                    e.target.reset();
+                }, 3000);
+            } catch (err) {
+                alert('No se pudo enviar la inscripción: ' + err.message);
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        // Hover effect for availability days
+        const checkLabels = document.querySelectorAll('.group.cursor-pointer');
+        checkLabels.forEach(label => {
+            const checkbox = label.querySelector('input');
+            checkbox.addEventListener('change', () => {
+                if(checkbox.checked) {
+                    label.querySelector('span').classList.add('text-primary', 'font-bold');
+                } else {
+                    label.querySelector('span').classList.remove('text-primary', 'font-bold');
+                }
+            });
+        });
+    </script>
+
+</body></html>

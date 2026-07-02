@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventario | San Ignacio Gestión Pastoral</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#2b1600",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#ffa02b",
+                    "primary": "#001b38",
+                    "surface-container-highest": "#e2e2e6",
+                    "on-primary-fixed": "#001c3a",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eeedf2",
+                    "secondary-fixed-dim": "#ffb86e",
+                    "inverse-on-surface": "#f1f0f5",
+                    "primary-container": "#00305c",
+                    "outline-variant": "#c3c6d0",
+                    "surface-bright": "#faf9fd",
+                    "inverse-surface": "#2f3034",
+                    "inverse-primary": "#a6c8fd",
+                    "surface-variant": "#e2e2e6",
+                    "on-primary-container": "#7799cb",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e8e8ec",
+                    "on-background": "#1a1c1f",
+                    "on-primary-fixed-variant": "#224875",
+                    "outline": "#737780",
+                    "on-surface-variant": "#43474f",
+                    "on-secondary-fixed": "#2c1600",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#693c00",
+                    "surface-container-low": "#f4f3f7",
+                    "on-tertiary-fixed": "#2c1600",
+                    "tertiary-container": "#482800",
+                    "tertiary-fixed-dim": "#ffb86e",
+                    "secondary": "#8a5100",
+                    "tertiary-fixed": "#ffdcbd",
+                    "background": "#faf9fd",
+                    "surface-tint": "#3d608e",
+                    "secondary-fixed": "#ffdcbd",
+                    "primary-fixed": "#d4e3ff",
+                    "on-tertiary-container": "#cd883b",
+                    "surface-dim": "#dad9de",
+                    "primary-fixed-dim": "#a6c8fd",
+                    "surface": "#faf9fd",
+                    "on-surface": "#1a1c1f",
+                    "on-secondary-container": "#693d00",
+                    "on-secondary-fixed-variant": "#693c00",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Work Sans"],
+                    "headline-lg-mobile": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "headline-md": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "headline-lg": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "label-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-accent-secondary { border-top: 4px solid #8a5100; }
+        .card-accent-tertiary { border-top: 4px solid #2b1600; }
+        .shadow-soft { box-shadow: 0px 4px 20px rgba(0, 48, 92, 0.05); }
+        .sidebar-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="fixed left-0 top-0 h-full z-40 py-gutter bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container docked h-screen w-64 flex flex-col shadow-lg">
+<div class="px-6 mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary dark:text-on-primary-container">San Ignacio</h1>
+<p class="font-label-md text-label-md opacity-70">Administración</p>
+</div>
+<nav class="flex-grow space-y-1">
+<!-- Dashboard Tab -->
+<a class="flex items-center px-4 py-3 text-on-primary/70 dark:text-on-primary-container/70 mx-2 my-1 hover:bg-primary-fixed-dim/20 transition-all rounded-lg group" href="supervisor.html">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Informes Tab -->
+<a class="flex items-center px-4 py-3 text-on-primary/70 dark:text-on-primary-container/70 mx-2 my-1 hover:bg-primary-fixed-dim/20 transition-all rounded-lg group" href="supervisor-informes.html">
+<span class="material-symbols-outlined mr-3">assessment</span>
+<span class="font-label-md text-label-md">Informes</span>
+</a>
+<!-- Inventario Tab (ACTIVE) -->
+<a class="flex items-center px-4 py-3 bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-lg mx-2 my-1 shadow-md scale-95 transition-transform" href="supervisor-inventario.html">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Inventario</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+                Nuevo Proyecto
+            </button>
+</div>
+<div class="mt-auto border-t border-on-primary/10 pt-4 space-y-1">
+<a class="flex items-center px-4 py-3 text-on-primary/70 dark:text-on-primary-container/70 mx-2 my-1 hover:bg-primary-fixed-dim/20 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-label-md text-label-md">Ajustes</span>
+</a>
+<a class="flex items-center px-4 py-3 text-on-primary/70 dark:text-on-primary-container/70 mx-2 my-1 hover:bg-primary-fixed-dim/20 transition-all rounded-lg" href="login-supervisor.html">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span class="font-label-md text-label-md">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-grow p-margin-desktop max-w-container-max mx-auto">
+<!-- Header & Action Row -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Gestión de Inventario</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Control de materiales y suministros para obras activas.</p>
+</div>
+<button id="btn-nuevo-material" class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md flex items-center gap-2 shadow-soft hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">input</span>
+                Registrar Entrada de Material
+            </button>
+</header>
+<!-- Alert Section (Low Stock) -->
+<section class="mb-8">
+<div class="bg-error-container text-on-error-container p-6 rounded-xl flex items-center gap-4 shadow-sm border-l-8 border-error">
+<div class="bg-error text-on-error p-3 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md font-bold">Alerta de Suministros</h4>
+<p class="font-body-md text-body-md">Se han detectado 3 materiales con nivel de stock crítico. Es necesaria una reposición inmediata para evitar retrasos en obra.</p>
+</div>
+<button class="bg-on-error-container text-white px-4 py-2 rounded-lg font-label-sm text-label-sm hover:opacity-90">
+                    Ver Detalles
+                </button>
+</div>
+</section>
+<!-- Stats Bento Grid (Quick Overview) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-soft card-accent-secondary">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total SKUs</p>
+<p class="font-headline-md text-headline-md text-primary mt-2">124</p>
+<div class="mt-4 flex items-center text-secondary font-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">category</span>
+                    Activos en 8 categorías
+                </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-soft border-t-4 border-error">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Bajo Stock</p>
+<p class="font-headline-md text-headline-md text-error mt-2">3</p>
+<div class="mt-4 flex items-center text-error font-label-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_down</span>
+                    Prioridad Alta
+                </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-soft card-accent-tertiary">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Último Movimiento</p>
+<p class="font-headline-md text-headline-md text-tertiary mt-2">Hoy, 08:30</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-4">Entrada: Cemento Gris</p>
+</div>
+<div class="relative overflow-hidden bg-primary p-6 rounded-2xl shadow-soft text-on-primary">
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm text-on-primary/70 uppercase tracking-wider">Inversión Stock</p>
+<p class="font-headline-md text-headline-md mt-2">$42,500</p>
+<p class="font-label-sm text-label-sm text-on-primary/60 mt-4">Valorizado al costo</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">payments</span>
+</div>
+</div>
+</section>
+<!-- Inventory Management Table & Search -->
+<section class="bg-surface-container-lowest rounded-2xl shadow-soft overflow-hidden">
+<!-- Table Header / Filters -->
+<div class="p-6 border-b border-outline-variant flex flex-col lg:flex-row gap-6 items-center">
+<div class="relative w-full lg:max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-body-md transition-all" placeholder="Buscar material por nombre o código..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm shadow-sm">Todos</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-outline-variant transition-colors">Maderas</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-outline-variant transition-colors">Cemento</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-outline-variant transition-colors">Fierros</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-outline-variant transition-colors">Pinturas</button>
+<button class="flex items-center gap-1 px-4 py-2 border border-outline-variant rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filtros Avanzados
+                    </button>
+</div>
+</div>
+<!-- Scrollable Table Body -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Material</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Categoría</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Stock Actual</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Unidad</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Estado</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant" id="tbody-inventario">
+<!-- Row 1: Suficiente -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Pino certificado seco cepillado 2x2 3,2 m</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">MAD-001</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[12px] font-bold">Maderas</span>
+</td>
+<td class="px-6 py-5 font-body-md text-body-md text-on-surface">220</td>
+<td class="px-6 py-5 font-body-md text-body-md text-on-surface-variant">Unidades</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-green-600">
+<span class="w-2 h-2 rounded-full bg-green-600"></span>
+<span class="font-label-sm text-label-sm">Suficiente</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-outline group-hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Bajo Stock -->
+<tr class="hover:bg-surface-container-low transition-colors group bg-error-container/5">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Cemento Melón Especial</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">CEM-042</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[12px] font-bold">Cemento</span>
+</td>
+<td class="px-6 py-5 font-body-md text-body-md text-on-surface font-bold">12</td>
+<td class="px-6 py-5 font-body-md text-body-md text-on-surface-variant">Sacos (25kg)</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="font-label-sm text-label-sm">Bajo Stock</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-outline group-hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Agotado -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">hardware</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Fierro Estriado 8mm</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">MET-109</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[12px] font-bold">Fierros</span>
+</td>
+<td class="px-6 py-5 font-body-md text-body-md text-error font-bold">0</td>
+<td class="px-6 py-5 font-body-md text-body-md text-on-surface-variant">Barras (6m)</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-sm text-label-sm">Agotado</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-outline group-hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Suficiente -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">format_paint</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Esmalte al Agua Blanco</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">PNT-015</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[12px] font-bold">Pinturas</span>
+</td>
+<td class="px-6 py-5 font-body-md text-body-md text-on-surface">85</td>
+<td class="px-6 py-5 font-body-md text-body-md text-on-surface-variant">Galones</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-green-600">
+<span class="w-2 h-2 rounded-full bg-green-600"></span>
+<span class="font-label-sm text-label-sm">Suficiente</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-outline group-hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-6 border-t border-outline-variant flex justify-between items-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mostrando 1 a 4 de 124 materiales</p>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-outline-variant text-outline hover:bg-surface-container-low disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded-lg bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="px-3 py-1 rounded-lg hover:bg-surface-container-low font-label-md text-label-md">2</button>
+<button class="px-3 py-1 rounded-lg hover:bg-surface-container-low font-label-md text-label-md">3</button>
+<button class="p-2 rounded-lg border border-outline-variant text-outline hover:bg-surface-container-low">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Contextual Help / Activity Feed Overlay-like Section -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container p-6 rounded-2xl">
+<h5 class="font-label-md text-label-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">history</span>
+                    Movimientos Recientes
+                </h5>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+<p class="font-body-md text-body-md">Ingreso de 50 sacos de cemento por <span class="font-bold">Admin Juan</span> <span class="text-on-surface-variant text-sm block italic">Hace 2 horas</span></p>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2"></div>
+<p class="font-body-md text-body-md">Retiro de 20 vigas de madera para <span class="font-bold">Proyecto Capilla</span> <span class="text-on-surface-variant text-sm block italic">Ayer, 16:45</span></p>
+</li>
+</ul>
+</div>
+<div class="bg-surface-bright p-6 rounded-2xl border border-outline-variant flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[32px]">support_agent</span>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary">¿Necesitas ayuda con el stock?</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Contacta a adquisiciones para órdenes de compra automáticas.</p>
+<a class="inline-block mt-2 text-secondary font-label-sm text-label-sm hover:underline" href="#">Contactar Soporte</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Injected from JSON) -->
+<footer class="fixed bottom-0 right-0 left-64 bg-surface-container-highest dark:bg-surface-variant text-on-surface dark:text-on-surface-variant border-t border-outline-variant py-4 px-margin-desktop flex justify-between items-center z-30">
+<div class="flex items-center gap-6">
+<span class="font-label-md text-label-md font-bold text-primary">Misión Jesuita</span>
+<span class="font-label-sm text-label-sm opacity-70">© 2024 Gestión Pastoral. Todos los derechos reservados.</span>
+</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline" href="#">Contacto</a>
+</div>
+</footer>
+<!-- Interactive Layer: Simple Scroll Effect for SideNav -->
+<script>
+        const sidebar = document.querySelector('aside');
+        const main = document.querySelector('main');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                // Subtle shadow change or effect could be added here
+            }
+        });
+
+        // Add active scale effect simulation for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+<script src="../js/api.js"></script>
+<script>
+    // ====== Inventario REAL (GET /api/inventario) ======
+    const runSesion = () => (obtenerSesion() || {}).run || 11111111;
+
+    function badgeEstado(stock) {
+        if (stock <= 0)  return '<span class="px-3 py-1 rounded-full font-label-sm bg-red-100 text-red-700">Agotado</span>';
+        if (stock < 10)  return '<span class="px-3 py-1 rounded-full font-label-sm bg-amber-100 text-amber-700">Stock bajo</span>';
+        return '<span class="px-3 py-1 rounded-full font-label-sm bg-green-100 text-green-700">Suficiente</span>';
+    }
+
+    async function cargarInventario() {
+        const tbody = document.getElementById('tbody-inventario');
+        try {
+            const items = await apiFetch(API.INVENTARIO);
+            tbody.innerHTML = items.length === 0
+                ? '<tr><td colspan="6" class="px-6 py-8 text-center text-on-surface-variant">No hay materiales registrados. Usa "Registrar Entrada de Material" para agregar el primero.</td></tr>'
+                : items.map(it => `
+                <tr class="hover:bg-surface-container-low transition-colors group">
+                    <td class="px-6 py-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">inventory_2</span>
+                            </div>
+                            <div>
+                                <p class="font-label-md text-label-md text-primary">${it.nombreMaterial}</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant">ITEM-${String(it.idItem).padStart(3, '0')}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-5 font-body-md">${it.categoria}</td>
+                    <td class="px-6 py-5 font-body-md font-bold">${it.stockActual}</td>
+                    <td class="px-6 py-5 font-body-md">${it.unidadMedida}</td>
+                    <td class="px-6 py-5">${badgeEstado(it.stockActual)}</td>
+                    <td class="px-6 py-5 text-right whitespace-nowrap">
+                        <button onclick="movimiento(${it.idItem}, 'ENTRADA')" title="Entrada" class="material-symbols-outlined text-green-600 hover:scale-110 transition-transform mx-1">add_circle</button>
+                        <button onclick="movimiento(${it.idItem}, 'SALIDA')" title="Salida" class="material-symbols-outlined text-amber-600 hover:scale-110 transition-transform mx-1">remove_circle</button>
+                        <button onclick="eliminarItem(${it.idItem})" title="Eliminar" class="material-symbols-outlined text-on-surface-variant hover:text-red-600 hover:scale-110 transition-transform mx-1">delete</button>
+                    </td>
+                </tr>`).join('');
+        } catch (err) {
+            tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-8 text-center text-red-600">Error al cargar inventario: ${err.message}</td></tr>`;
+        }
+    }
+
+    async function movimiento(idItem, tipo) {
+        const cantidad = parseInt(prompt(`Cantidad de ${tipo === 'ENTRADA' ? 'entrada' : 'salida'}:`), 10);
+        if (!cantidad || cantidad <= 0) return;
+        const comentario = prompt('Comentario (opcional):') || '';
+        try {
+            await apiFetch(`${API.INVENTARIO}/movimientos`, 'POST', {
+                item: { idItem: idItem },
+                cantidad: cantidad,
+                tipoMovimiento: tipo,
+                responsableRun: runSesion(),
+                comentario: comentario
+            });
+            cargarInventario();
+        } catch (err) { alert('Error: ' + err.message); }
+    }
+
+    async function eliminarItem(idItem) {
+        if (!confirm('¿Eliminar este material del inventario?')) return;
+        try {
+            await apiFetch(`${API.INVENTARIO}/items/${idItem}`, 'DELETE');
+            cargarInventario();
+        } catch (err) { alert('Error: ' + err.message); }
+    }
+
+    // Botón "Registrar Entrada de Material" → crear item nuevo
+    document.getElementById('btn-nuevo-material').addEventListener('click', async () => {
+        const nombre = prompt('Nombre del material:');
+        if (!nombre) return;
+        const categoria = prompt('Categoría (ej: Maderas, Fierros, Cemento):') || 'General';
+        const stock = parseInt(prompt('Stock inicial:', '0'), 10) || 0;
+        const unidad = prompt('Unidad de medida (ej: unidades, kg, sacos):') || 'unidades';
+        try {
+            await apiFetch(`${API.INVENTARIO}/items`, 'POST', {
+                nombreMaterial: nombre, categoria: categoria,
+                stockActual: stock, unidadMedida: unidad, descripcion: ''
+            });
+            cargarInventario();
+        } catch (err) { alert('Error: ' + err.message); }
+    });
+
+    cargarInventario();
+</script>
+</body></html>

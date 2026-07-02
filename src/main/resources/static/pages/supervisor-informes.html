@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>San Ignacio - Panel de Informes</title>
+<!-- Google Fonts: Work Sans & Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Shared Components JSON Mapping & Style Guidance Implementation -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#2b1600",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#ffa02b",
+                    "primary": "#001b38",
+                    "surface-container-highest": "#e2e2e6",
+                    "on-primary-fixed": "#001c3a",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eeedf2",
+                    "secondary-fixed-dim": "#ffb86e",
+                    "inverse-on-surface": "#f1f0f5",
+                    "primary-container": "#00305c",
+                    "outline-variant": "#c3c6d0",
+                    "surface-bright": "#faf9fd",
+                    "inverse-surface": "#2f3034",
+                    "inverse-primary": "#a6c8fd",
+                    "surface-variant": "#e2e2e6",
+                    "on-primary-container": "#7799cb",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e8e8ec",
+                    "on-background": "#1a1c1f",
+                    "on-primary-fixed-variant": "#224875",
+                    "outline": "#737780",
+                    "on-surface-variant": "#43474f",
+                    "on-secondary-fixed": "#2c1600",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#693c00",
+                    "surface-container-low": "#f4f3f7",
+                    "on-tertiary-fixed": "#2c1600",
+                    "tertiary-container": "#482800",
+                    "tertiary-fixed-dim": "#ffb86e",
+                    "secondary": "#8a5100",
+                    "tertiary-fixed": "#ffdcbd",
+                    "background": "#faf9fd",
+                    "surface-tint": "#3d608e",
+                    "secondary-fixed": "#ffdcbd",
+                    "primary-fixed": "#d4e3ff",
+                    "on-tertiary-container": "#cd883b",
+                    "surface-dim": "#dad9de",
+                    "primary-fixed-dim": "#a6c8fd",
+                    "surface": "#faf9fd",
+                    "on-surface": "#1a1c1f",
+                    "on-secondary-container": "#693d00",
+                    "on-secondary-fixed-variant": "#693c00",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Work Sans"],
+                    "headline-lg-mobile": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "headline-md": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "headline-lg": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "label-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; background-color: #f8fafc; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .card-shadow { box-shadow: 0px 4px 20px rgba(0, 48, 92, 0.05); }
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #c3c6d0; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Layout Container -->
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<!-- style_shell_layout: fixed left-0 top-0 h-full z-40 py-gutter -->
+<aside class="fixed left-0 top-0 h-full z-40 py-gutter bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-64 flex flex-col shadow-lg">
+<!-- Header Section -->
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary">church</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold leading-tight">San Ignacio</h1>
+<p class="font-label-sm text-label-sm opacity-80">Administración</p>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="px-4 mb-6">
+<button class="w-full bg-secondary text-on-secondary py-3 px-4 rounded-lg font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+                    Nuevo Proyecto
+                </button>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-grow space-y-1 px-2">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 py-3 px-4 text-on-primary/70 dark:text-on-primary-container/70 rounded-lg font-label-md hover:bg-primary-fixed-dim/20 transition-all" href="supervisor.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Informes (Active) -->
+<!-- style_active_navigation: bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-lg mx-2 my-1 -->
+<a class="flex items-center gap-3 py-3 px-4 bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-lg font-label-md transition-all" href="supervisor-informes.html">
+<span class="material-symbols-outlined">assessment</span>
+<span>Informes</span>
+</a>
+<!-- Inventario -->
+<a class="flex items-center gap-3 py-3 px-4 text-on-primary/70 dark:text-on-primary-container/70 rounded-lg font-label-md hover:bg-primary-fixed-dim/20 transition-all" href="supervisor-inventario.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventario</span>
+</a>
+</nav>
+<!-- Footer Tabs -->
+<div class="mt-auto border-t border-white/10 pt-4 px-2 pb-4">
+<a class="flex items-center gap-3 py-3 px-4 text-on-primary/70 dark:text-on-primary-container/70 rounded-lg font-label-md hover:bg-primary-fixed-dim/20 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Ajustes</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-on-primary/70 dark:text-on-primary-container/70 rounded-lg font-label-md hover:bg-primary-fixed-dim/20 transition-all" href="login-supervisor.html">
+<span class="material-symbols-outlined">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col min-w-0 bg-background">
+<!-- Top Bar / Header -->
+<header class="h-16 flex items-center justify-between px-margin-desktop bg-surface sticky top-0 z-30 border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">assessment</span>
+<h2 class="font-headline-md text-headline-md text-primary">Informes Estratégicos</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male administrator in his 40s, looking confident, soft studio lighting, corporate photography style, wearing a navy blue blazer, blurred office background with subtle blue and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpQLg3YbLxdG6NENf7v0IZumStoCky5-6zwrFfgKwQYJL3EUpefpPRT9Ac1USSyn8Mw516uBSc-du4oGOcUdB4l2ZsMm1852cWUCCOLuZy8291ridlOblFgjBSJa1FFkIwUpJp_eirhjXOoAT5QlA8zRM69TcRpiwDCMo_qynGJZL8CL0SGbDQkThsxkEuiCQcfyxWz7NFpckS18vIZEWCeYyUsdjMF5dyZzfmuZKLMumGY6OlbMzcwA"/>
+</div>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<div class="p-margin-desktop max-w-container-max mx-auto w-full space-y-gutter">
+<!-- 1. Resumen Ejecutivo (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Donaciones Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl card-shadow border-t-4 border-secondary flex flex-col justify-between">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Total Donaciones</p>
+<h3 class="font-headline-lg text-primary">84</h3>
+</div>
+<div class="mt-4 flex items-center gap-2 text-emerald-600">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-sm">+25% este mes</span>
+</div>
+</div>
+<!-- Impacto Social Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl card-shadow border-t-4 border-tertiary flex flex-col justify-between">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Impacto Social</p>
+<h3 class="font-headline-lg text-primary">25 <span class="text-label-md font-normal text-on-surface-variant">Vidas</span></h3>
+</div>
+<div class="mt-4 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="font-label-sm">8 comunidades activas</span>
+</div>
+</div>
+<!-- Progreso Obras Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl card-shadow border-t-4 border-secondary-container flex flex-col justify-between col-span-1 md:col-span-1 lg:col-span-2">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Progreso de Obras Global</p>
+<h3 class="font-headline-lg text-primary">78%</h3>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-secondary-container/20 flex items-center justify-center relative">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-secondary-container" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="126" stroke-dashoffset="28" stroke-width="4"></circle>
+</svg>
+<span class="absolute text-[10px] font-bold">78%</span>
+</div>
+</div>
+<div class="mt-4 w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-secondary-container h-full rounded-full" style="width: 78%"></div>
+</div>
+<p class="mt-2 font-label-sm text-on-surface-variant">3 proyectos finalizados este trimestre</p>
+</div>
+</section>
+<!-- 2. Gráficos de Rendimiento & Proyectos -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Performance Chart Placeholder -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl card-shadow relative overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-headline-md text-primary">Avance de Proyectos</h4>
+<select class="bg-surface-container-low border-none rounded-lg text-label-md text-primary font-bold px-4 focus:ring-0">
+<option>Últimos 6 meses</option>
+<option>Último año</option>
+</select>
+</div>
+<!-- Mockup Graph -->
+<div class="h-64 w-full flex items-end justify-between gap-2 px-2 border-b border-outline-variant relative">
+<!-- Background Grid -->
+<div class="absolute inset-0 flex flex-col justify-between py-1 opacity-10">
+<div class="border-t border-on-surface"></div>
+<div class="border-t border-on-surface"></div>
+<div class="border-t border-on-surface"></div>
+<div class="border-t border-on-surface"></div>
+</div>
+<!-- Bars -->
+<div class="flex-1 bg-primary/10 hover:bg-primary/20 transition-all rounded-t-sm h-[40%] group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">40%</div>
+</div>
+<div class="flex-1 bg-primary/15 hover:bg-primary/20 transition-all rounded-t-sm h-[55%] group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">55%</div>
+</div>
+<div class="flex-1 bg-secondary/30 hover:bg-secondary/40 transition-all rounded-t-sm h-[70%] group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">70%</div>
+</div>
+<div class="flex-1 bg-primary/40 hover:bg-primary/50 transition-all rounded-t-sm h-[65%] group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">65%</div>
+</div>
+<div class="flex-1 bg-primary/60 hover:bg-primary/70 transition-all rounded-t-sm h-[85%] group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">85%</div>
+</div>
+<div class="flex-1 bg-secondary hover:bg-secondary/90 transition-all rounded-t-sm h-[95%] group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">95%</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-label-sm text-on-surface-variant font-medium">
+<span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span>
+</div>
+</div>
+<!-- Impact Gallery / Visual Evidence -->
+<div class="bg-surface-container-lowest rounded-xl card-shadow overflow-hidden flex flex-col">
+<div class="h-48 bg-cover bg-center" data-alt="High-quality architectural photograph of a newly constructed community center in a rural area. The building features clean lines, warm wooden accents, and large windows reflecting a bright blue sky. Sunlight casts soft shadows, conveying a sense of hope and progress. Corporate blue tones are subtly integrated into the sky and shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvyL9RSvllm2Ch4Do8Bhk7BjIFW6b0sis-DNXRdbhURnraQOnuD5bRF71gEH7Nbi7vQzXKW4tuNDJZA5dhN90BrE5VMpzfpoee1vhNlGX2yQp6ayUAaGkFgeIFwt-kJkVY8X4cixa0BkDiaxqsY4Ho3-ub3GCn7aO4WwkC_mJjIVKl3GSQnqDvQoATK-7BAi5SdlYKuH23CODwjDEpEgJsxR4Vno0stEiabyvzA5UUeBh5NzutEjTptw')"></div>
+<div class="p-6">
+<h4 class="font-headline-md text-primary mb-2">Hito Reciente</h4>
+<p class="font-body-md text-on-surface-variant">Culminación del Centro Comunitario 'San José'. Entrega de llaves realizada el 15 de Mayo.</p>
+<button class="mt-6 text-secondary font-bold font-label-md flex items-center gap-2 hover:underline">
+                                Ver galería completa
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 3. Lista de Informes Descargables -->
+<section class="bg-surface-container-lowest rounded-xl card-shadow overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-headline-md text-primary">Centro de Documentación</h4>
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-outline rounded-lg text-label-sm hover:bg-surface-container transition-colors">Filtrar</button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">cloud_download</span>
+                                Descargar Todo
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-md uppercase tracking-wider text-[11px]">
+<tr>
+<th class="px-6 py-4">Nombre del Informe</th>
+<th class="px-6 py-4">Categoría</th>
+<th class="px-6 py-4">Fecha de Cierre</th>
+<th class="px-6 py-4">Responsable</th>
+<th class="px-6 py-4 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant font-body-md text-on-surface" id="tbody-reportes">
+<!-- Row 1: Financiero -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-5 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-red-50 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-bold">Cierre Financiero Q1 2024</p>
+<p class="text-xs text-on-surface-variant">4.2 MB • PDF</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold">Financiero</span>
+</td>
+<td class="px-6 py-5">31 Mar 2026</td>
+<td class="px-6 py-5">Dpto. Tesorería</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary p-2 hover:bg-primary-container/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Operativo -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-5 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined">table_chart</span>
+</div>
+<div>
+<p class="font-bold">Estatus de Obras - Noroeste</p>
+<p class="text-xs text-on-surface-variant">1.8 MB • Excel</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">Operativo</span>
+</td>
+<td class="px-6 py-5">12 May 2026</td>
+<td class="px-6 py-5">Ing. Arrieta</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary p-2 hover:bg-primary-container/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Voluntariado -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-5 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined">article</span>
+</div>
+<div>
+<p class="font-bold">Memoria Anual Voluntariado</p>
+<p class="text-xs text-on-surface-variant">12.5 MB • PDF</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-xs font-bold">Voluntariado</span>
+</td>
+<td class="px-6 py-5">15 Ene 2026</td>
+<td class="px-6 py-5">Coord. Social</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary p-2 hover:bg-primary-container/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Footer (Shared Component) -->
+<!-- style_shell_layout: w-full py-8 px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto -->
+<footer class="mt-auto bg-surface-container-highest dark:bg-surface-variant border-t border-outline-variant">
+<div class="w-full py-8 px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto">
+<div class="mb-4 md:mb-0 text-center md:text-left">
+<p class="font-label-md text-label-md font-bold text-primary mb-1">San Ignacio</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Misión Jesuita. Todos los derechos reservados.</p>
+</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<script>
+        // Micro-interactions for chart bars
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scaleY(1.05)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scaleY(1)';
+            });
+        });
+
+        // Simple sticky header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 0) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+<script src="../js/api.js"></script>
+<script>
+    // ====== Historial de informes REAL (GET /api/reportes) ======
+    async function cargarReportes() {
+        const tbody = document.getElementById('tbody-reportes');
+        try {
+            const reportes = await apiFetch(API.REPORTES);
+            tbody.innerHTML = reportes.length === 0
+                ? '<tr><td colspan="5" class="px-6 py-8 text-center text-on-surface-variant">No hay informes generados todavía. Usa el botón "+ Generar Informe".</td></tr>'
+                : reportes.map(r => `
+                <tr class="hover:bg-surface-container transition-colors">
+                    <td class="px-6 py-5 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded bg-red-50 text-red-600 flex items-center justify-center">
+                            <span class="material-symbols-outlined">description</span>
+                        </div>
+                        <span class="font-label-md text-primary">${r.nombreReporte}</span>
+                    </td>
+                    <td class="px-6 py-5">${r.tipoReporte}</td>
+                    <td class="px-6 py-5">${(r.fechaGeneracion || '').replace('T', ' ').substring(0, 16)}</td>
+                    <td class="px-6 py-5">RUN ${r.generadoPorRun}</td>
+                    <td class="px-6 py-5 text-right">
+                        <button onclick="eliminarReporte(${r.idReporte})" title="Eliminar" class="material-symbols-outlined text-on-surface-variant hover:text-red-600 hover:scale-110 transition-transform">delete</button>
+                    </td>
+                </tr>`).join('');
+        } catch (err) {
+            tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-red-600">Error al cargar informes: ${err.message}</td></tr>`;
+        }
+    }
+
+    async function generarInforme() {
+        const nombre = prompt('Nombre del informe (ej: Informe mensual de donaciones):');
+        if (!nombre) return;
+        const tipo = prompt('Tipo (FINANCIERO, DONACIONES, INVENTARIO, IMPACTO):', 'DONACIONES') || 'GENERAL';
+        try {
+            await apiFetch(`${API.REPORTES}/historial`, 'POST', {
+                nombreReporte: nombre,
+                tipoReporte: tipo.toUpperCase(),
+                generadoPorRun: (obtenerSesion() || {}).run || 11111111,
+                datosResumen: 'Generado desde el panel de informes'
+            });
+            cargarReportes();
+        } catch (err) { alert('Error: ' + err.message); }
+    }
+
+    // Botón flotante "+ Generar Informe"
+    const btn = document.createElement('button');
+    btn.innerText = '+ Generar Informe';
+    btn.className = 'fixed bottom-8 right-8 bg-primary text-on-primary px-6 py-4 rounded-full font-label-md shadow-2xl hover:scale-105 active:scale-95 transition-transform z-50';
+    btn.onclick = generarInforme;
+    document.body.appendChild(btn);
+
+    async function eliminarReporte(id) {
+        if (!confirm('¿Eliminar este informe del historial?')) return;
+        try {
+            await apiFetch(`${API.REPORTES}/${id}`, 'DELETE');
+            cargarReportes();
+        } catch (err) { alert('Error: ' + err.message); }
+    }
+
+    cargarReportes();
+</script>
+</body></html>
